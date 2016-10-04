@@ -1,0 +1,33 @@
+h1 {
+    color: crimson;
+}
+form {
+    border: solid 1px;
+    margin: 10px;
+    padding: 10px;
+    border-color: darkolivegreen;
+}
+label {
+    color: green;
+}
+
+#loginForm {
+    witdh: 100px;
+}
+
+#loginForm label {
+    color: blue;
+    margin: 10px;
+}
+
+#loginForm input {
+    font-size: 20px;
+    border: 2px solid lightgray;
+    box-shadow: 2px 2px gray;
+}
+
+#buttonLogin {
+    margin: 10px;
+    color: yellow;
+    background: green;
+}
