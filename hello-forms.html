@@ -2,93 +2,101 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Hello Form</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
-<h1>Please Sign Up</h1>
-<form method="POST" action="http://requestb.in/15nbn1c1">
-    <label for="username">Username</label>
-    <input id="username" type="text" name="username">
-    <br>
+    <div class="container">
+        <h1>Please Sign Up</h1>
+        <form method="POST" action="http://requestb.in/15nbn1c1">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input id="username" type="text" name="username">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email">
+            </div>
+            <div class="form-group">
+                <label for="password">password</label>
+                <input id="password" type="password" name="password">
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">confirm password</label>
+                <input id="confirm_password" type="password" name="confirm_password">
+            </div>
 
-    <label for="email">Email</label>
-    <input id="email" name="email" type="email">
-    <br>
+            <h2>Filing Status</h2>
+            <div class="radio">
+                <label for="filing_status1">
+                    <input type="radio" id="filing_status1" name="filing_status" value="single">
+                    Single
+                </label>
+            </div>
+            <div class="radio">
+                <label for="filing_status2">
+                    <input type="radio" id="filing_status2" name="filing_status" value="married_joint">
+                    Married Filing Jointly
+                </label>
+            </div>
+            <div class="radio">
+                <label for="filing_status3">
+                    <input type="radio" id="filing_status3" name="filing_status" value="married_separate">
+                    Married Filing Separately
+                </label>
+            </div>
+            <div class="radio">
+                <label for="filing_status4">
+                    <input type="radio" id="filing_status4" name="filing_status" value="hoh">
+                    Head of Household
+                </label>
+            </div>
 
-    <label for="password">password</label>
-    <input id="password" type="password" name="password">
-    <br>
+            <h2>This past year I was (check all that apply)</h2>
+            <div class="checkbox">
+                <label for="status1">
+                    <input type="checkbox" id="status1" name="employment_status[]" value="self_employed">
+                    Self - Employed
+                </label>
+            </div>
 
-    <label for="confirm_password">confirm password</label>
-    <input id="confirm_password" type="password" name="confirm_password">
-    <br>
+            <div class="checkbox">
+                <label for="status2">
+                    <input type="checkbox" id="status2" name="employment_status[]" value="small_business">
+                    Employed by a small business (< 50 employees)
+                </label>
+            </div>
+            <div class="checkbox">
+                <label for="status3">
+                    <input type="checkbox" id="status3" name="employment_status[]" value="large_business">
+                    Employed by a large business (> 50 employees)
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="phone_type">What kind of phone do you have</label>
+                <select id="phone_type" name="phone type">
+                    <option value="android">Android</option>
+                    <option value="iphone">iPhone</option>
+                    <option value="windows">Windows Phone</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
 
-    <h2>Filing Status</h2>
+            <hr>
+            <div class="form-group">
+                <label for="newsletter">Sign Me Up For The Newsletter
+                    <input type="checkbox" name="newsletter" id="newsletter" checked>
+                </label>
+            </div>
 
-    <label for="filing_status1">
-        <input type="radio" id="filing_status1" name="filing_status" value="single">
-        Single
-    </label>
-    <br>
+            <button class="btn btn-success btn-lg" type="submit">Submit</button>
 
-    <label for="filing_status2">
-        <input type="radio" id="filing_status2" name="filing_status" value="married_joint">
-        Married Filing Jointly
-    </label>
-    <br>
+        </form>
+    </div>
 
-    <label for="filing_status3">
-        <input type="radio" id="filing_status3" name="filing_status" value="married_separate">
-        Married Filing Separately
-    </label>
-    <br>
-
-    <label for="filing_status4">
-        <input type="radio" id="filing_status4" name="filing_status" value="hoh">
-        Head of Household
-    </label>
-    <br>
-
-    <h2>This past year I was (check all that apply)</h2>
-
-    <label for="status1">
-        <input type="checkbox" id="status1" name="employment_status[]" value="self_employed">
-        Self - Employed
-    </label>
-    <br>
-
-    <label for="status2">
-        <input type="checkbox" id="status2" name="employment_status[]" value="small_business">
-        Employed by a small business (< 50 employees)
-    </label>
-    <br>
-
-    <label for="status3">
-        <input type="checkbox" id="status3" name="employment_status[]" value="large_business">
-        Employed by a large business (> 50 employees)
-    </label>
-    <br>
-
-    <label for="phone_type">What kind of phone do you have</label>
-    <select id="phone_type" name="phone type">
-        <option value="android">Android</option>
-        <option value="iphone">iPhone</option>
-        <option value="windows">Windows Phone</option>
-        <option value="other">Other</option>
-    </select>
-
-
-    <hr>
-
-    <label for="newsletter">Sign Me Up For The Newsletter
-        <input type="checkbox" name="newsletter" id="newsletter" checked>
-    </label>
-
-    <button type="submit">Submit</button>
-
-</form>
-
-
-
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
