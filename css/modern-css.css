@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Trebuchet MS", Verdana, Sans-Serif;
+}
+
+/* How make Bootstrap columns all the same height? */
+.row {
+    display: table;
+
+}
+[class*="col-"] {
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+}
+/* End of How make Bootstrap columns all the same height? */
+
+#rigthColumn {
+    background: #d2d8c7;
+    height: 100%;
+    display: table;
+}
+
+#leftColumn {
+    background: #999f8e;
+}
+#navBar {
+    margin-top: 15px;
+
+}
+#navBar a:link {
+    color: black;
+    text-decoration: underline;
+
+}
+h2 {
+    padding: 10px 0;
+}
+p {
+    line-height: 25px;
+    padding-bottom: 10px;
+}
