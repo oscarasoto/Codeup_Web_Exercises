@@ -2,7 +2,7 @@
  * Created by oscarsoto on 10/7/16.
  */
 "use strict";
-////////////////////////////////////////////
+///////////////////////////////////////////
 console.log("-- First Exercise --");
 
 var string = "";
