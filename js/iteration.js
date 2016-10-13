@@ -181,8 +181,3 @@ function createHtmlList (array) {
 console.log(createHtmlList(names));
 
 
-
-
-
-
-
