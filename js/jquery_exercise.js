@@ -16,3 +16,24 @@ $($lists).css("border", "1px solid red");
 
 $("#paragraph").css({"background-color":"yellow", "font-size":"15px", "font-weight":"bold"});
 
+// Mouse Events
+
+$($content).click(function () {
+    $(this).css("background-color", "yellow")
+});
+
+var size = 18;
+$("p").dblclick(function () {
+    $(this).css("font-size", size +"px")
+    console.log(size);
+    size ++
+});
+
+$("li").hover(
+    function () {
+        $(this).css("color", "red")
+    },
+    function () {
+        $(this).css("color", "black")
+    }
+);
