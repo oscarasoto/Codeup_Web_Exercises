@@ -1,0 +1,12 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+dt {
+    color: darkblue;
+    font-weight: bold;
+    margin: 2%;
+}
+.invisible {
+    display: none;
+    padding: 2%;
+}
