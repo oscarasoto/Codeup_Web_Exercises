@@ -7,11 +7,11 @@
         request.fail(function (error) {
             console.log(error)
         }).done (function (blogs) {
-            createArticles(blogs);
+            buildArticles(blogs);
         });
     }
 
-    function createArticles(blogs) {
+    function buildArticles(blogs) {
         blogs.forEach(function (blog) {
             var article = "<article><section class='post-head'><h2 id='title'>";
             article +=

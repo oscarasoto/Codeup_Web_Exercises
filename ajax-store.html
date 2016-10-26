@@ -17,15 +17,16 @@
                 <table id="products" class="table table-striped">
                     <thead>
                     <tr class="info">
-                        <th>Title</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Categories</th>
+                        <th><a id="titleHeader">Title<span class="pull-right"><span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span></span></a></th>
+                        <th><a id="quantityHeader">Quantity<span class="pull-right"><span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span></a></th>
+                        <th><a id="priceHeader">Price<span class="pull-right"><span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span></span></a></th>
+                        <th><a id="categoryHeader">Categories<span class="pull-right"><span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span></span></a></th>
                     </tr>
                     </thead>
                     <tbody id="insertProducts">
                     </tbody>
                 </table>
+                <button id="refresh" type="button" class="btn btn-primary">Click to Refresh</button>
             </div>
         </div>
         <div class="row">

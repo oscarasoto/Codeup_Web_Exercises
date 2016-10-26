@@ -1,44 +1,89 @@
 (function() {
     "use strict";
-    // TODO: Create an ajax GET request for /data/inventory.json
 
-   function getInventory() {
-       var request = $.get("data/inventory.json");
+    var productsData;
 
-       request.fail(function (error) {
-           console.log(error)
-       }).done (function (products) {
-           createRows(products);
-       });
-   }
+    // Functions
+    function getInventory() {
+        var request = $.get("data/inventory.json");
 
-    // TODO: Take the data from inventory.json and append it to the products table
-    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
-    //             its contents and fields
-    //       HINT: You will want to target #insertProducts for your new HTML elements
-
-    function createRows(products) {
-        console.log(products);
-        products.forEach(function (product) {
-            console.log(product);
-            var row = "<tr><td>";
-            row += product.title + "</td><td>" + product.quantity + "</td><td>" + product.price + "</td><td>" + product.categories + "</td></tr>";
-            $("#insertProducts").append(row);
+        request.fail(function (error) {
+            console.log(error)
+        }).done (function (products) {
+            productsData = products;
+            buildRows(products);
         });
     }
 
+    function buildRows(products) {
+        var row = "";
+        products.forEach(function (product) {
+            row += "<tr><td>" + product.title + "</td><td>" + product.quantity + "</td><td>" + product.price + "</td><td>" + product.categories.join(", ") + "</td></tr>";
+        });
+        $("#insertProducts").html(row);
+    }
+
     function addInventory() {
-        var row = "<tr><td>";
-        row += $("#title").val() + "</td><td>" + $("#quantity").val() + "</td><td>" + $("#price").val() + "</td><td>" + $("#categories").val() + "</td></tr>";
+        var title = $("#title").val();
+        var quantity = $("#quantity").val();
+        var price = $("#price").val();
+        var category = $("#category").val();
+        var row = "<tr><td>" + title + "</td><td>" + quantity + "</td><td>" + price + "</td><td>" + category + "</td></tr>";
+        productsData.push({
+            "title": title,
+            "quantity": quantity,
+            "categories": category,
+            "price": price
+        });
         $("#insertProducts").append(row);
+    }
+
+    function sortProductsBy(products, selector) {
+        products.sort(function (productA, productB) {
+            if (productA[selector] < productB[selector]) {
+                return -1;
+            }
+            if (productA[selector] > productB[selector]) {
+                return 1;
+            }
+            return 0;
+        });
     }
 
     getInventory();
 
+    // Buttons
+    $("#refresh").on("click", getInventory);
+
+
     $("#submit").on("click", function () {
         event.preventDefault();
         addInventory();
-    })
+    });
+
+    // Sort links
+    $("#titleHeader").on("click", function () {
+        event.preventDefault();
+        sortProductsBy(productsData, "title");
+        $("#insertProducts").html(buildRows(productsData));
+    });
+    $("#quantityHeader").on("click", function () {
+        event.preventDefault();
+        sortProductsBy(productsData, "quantity");
+        $("#insertProducts").html(buildRows(productsData));
+    });
+    $("#priceHeader").on("click", function () {
+        event.preventDefault();
+        sortProductsBy(productsData, "price");
+        $("#insertProducts").html(buildRows(productsData));
+    });
+    $("#categoryHeader").on("click", function () {
+        event.preventDefault();
+        sortProductsBy(productsData, "categories");
+        $("#insertProducts").html(buildRows(productsData));
+    });
+
+
 
 
 
