@@ -5,3 +5,13 @@ img {
 #header {
     margin-bottom: 5%;
 }
+
+.clear{
+    background-image: url("../img/sunny.jpg");
+    background-size: auto;
+}
+
+#800{
+    background-image: url("../img/sunny.jpg");
+    background-size: auto;
+}
