@@ -1,7 +1,6 @@
 
 // API KEY: c5d1880499d15c30a82c4b04a976bfaa
 
-var weatherForecast;
 function getWeatherForecast() {
     $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
         APPID: "c5d1880499d15c30a82c4b04a976bfaa",
@@ -9,12 +8,8 @@ function getWeatherForecast() {
         units: "imperial"
     }).fail(function (error) {
         console.log(error);
-    }).done(function(data) {
-        // console.log(data);
-        // console.log(data.list[0].temp.day);
-        weatherForecast = data;
+    }).done(function(weatherForecast) {
         buildForecast(weatherForecast);
-        getWeather()
     });
 }
 
@@ -34,20 +29,36 @@ function buildForecast(weatherForecast) {
     $("#weatherForecast").html(htmlWeatherContent);
 }
 
+function buildCurrentWeather(weather) {
+    console.log(weather);
+    console.log(weather.clouds.all);
+    var htmlWeatherContent = "";
+    htmlWeatherContent += "<div class='col-xs-12'><div class='thumbnail'><h2 class='text-center'>"
+        + weather.main.temp_max + "&deg;/ " + weather.main.temp_min + "&deg;</h2><img src='http://openweathermap.org/img/w/"
+        + weather.weather[0].icon + ".png'><p class='text-center'><strong>Clouds: </strong>" + weather.clouds.all
+        + "</p><p class='text-center'><strong>Humidity: </strong>" + weather.main.humidity +
+        "</p><p class='text-center'><strong>Winds: </strong>" + weather.wind.speed +
+        "</p><p class='text-center'><strong>Pressure: </strong>" + weather.main.pressure + "</p></div></div>";
 
-function getWeather() {
+    $("#currentWeather").html(htmlWeatherContent);
+}
+
+
+function getCurrentWeather() {
     $.get("http://api.openweathermap.org/data/2.5/weather", {
         APPID: "c5d1880499d15c30a82c4b04a976bfaa",
         q:     "San Antonio, TX",
         units: "imperial"
     }).fail(function (error) {
         console.log(error);
-    }).done(function(data) {
-        console.log(data);
-        // console.log(data.list[0].temp.day);
-
+    }).done(function(currentWeather) {
+        buildCurrentWeather(currentWeather);
     });
 }
+
+getCurrentWeather();
+getWeatherForecast();
+
 
 
 /*
@@ -63,4 +74,3 @@ function getWeather() {
  </div>
 */
 
-getWeatherForecast()
