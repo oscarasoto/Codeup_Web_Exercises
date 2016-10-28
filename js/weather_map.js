@@ -17,14 +17,21 @@ function getCurrentWeather(latitude, longitude) {
 function buildCurrentWeather(weather) {
 
     var backgrounds = {
-        100 : "rain",
-        800 : "clear"
+        200 : "thunderstorm",
+        300 : "light_intensity_drizzle",
+        500 : "light_rain",
+        501 : "moderate_rain",
+        502 : "heavy_intensity_rain",
+        600 : "light_snow",
+        800 : "clear",
+        801 : "few_clouds",
+        802 : "scattered_clouds"
     };
 
     var htmlWeatherContent = "";
     htmlWeatherContent += "<div class='col-xs-12'><div class='thumbnail " + backgrounds[weather.weather[0].id] + "'><h2 class='text-center'>"
         + weather.main.temp_max + "&deg;/ " + weather.main.temp_min + "&deg;</h2><img src='http://openweathermap.org/img/w/"
-        + weather.weather[0].icon + ".png'><p class='text-center'><strong>Clouds: </strong>" + weather.clouds.all
+        + weather.weather[0].icon + ".png'><p class='text-center'><strong>Condition: </strong>" + weather.weather[0].description + "</p><p class='text-center'><strong>Clouds: </strong>" + weather.clouds.all
         + "</p><p class='text-center'><strong>Humidity: </strong>" + weather.main.humidity +
         "</p><p class='text-center'><strong>Winds: </strong>" + weather.wind.speed +
         "</p><p class='text-center'><strong>Pressure: </strong>" + weather.main.pressure + "</p></div></div>";
@@ -51,11 +58,25 @@ function getWeatherForecast(latitude, longitude, days) {
 }
 
 function buildForecast(weatherForecast, days) {
+
+    var backgrounds = {
+        200 : "thunderstorm",
+        300 : "light_intensity_drizzle",
+        500 : "light_rain",
+        501 : "moderate_rain",
+        502 : "heavy_intensity_rain",
+        600 : "light_snow",
+        800 : "clear",
+        801 : "few_clouds",
+        802 : "scattered_clouds"
+    };
+
     var htmlWeatherContent = "";
     weatherForecast.list.forEach(function (day, index) {
-        htmlWeatherContent += "<div class='col-xs-4'><div class='thumbnail'><h2 class='text-center'>"
+
+        htmlWeatherContent += "<div class='col-xs-4'><div class='thumbnail " + backgrounds[day.weather[0].id] + "'><h2 class='text-center'>"
             + day.temp.max + "&deg;/ " + day.temp.min + "&deg;</h2><img src='http://openweathermap.org/img/w/"
-            + day.weather[0].icon + ".png'><p class='text-center'><strong>Clouds: </strong>" + day.clouds
+            + day.weather[0].icon + ".png'><p class='text-center'><strong>Condition: </strong>" + day.weather[0].description + "</p><p class='text-center'><strong>Clouds: </strong>" + day.clouds
             + "</p><p class='text-center'><strong>Humidity: </strong>" + day.humidity +
             "</p><p class='text-center'><strong>Winds: </strong>" + day.speed +
             "</p><p class='text-center'><strong>Pressure: </strong>" + day.pressure + "</p></div></div>"
