@@ -87,7 +87,7 @@ function buildForecast(weatherForecast, days) {
 }
 
 
-<!-- Google Maps API -->
+// <!-- Google Maps API -->
 function createMap(lat, lng, cityName) {
     // Set our map options
     var mapOptions = {
@@ -111,6 +111,8 @@ function createMap(lat, lng, cityName) {
 getCurrentWeather(29.423017, -98.48527);
 getWeatherForecast(29.423017, -98.48527, 3);
 
+
+// Button
 
 $("#getWeather").on("click", function () {
     event.preventDefault();
