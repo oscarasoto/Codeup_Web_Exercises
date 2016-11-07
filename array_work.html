@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array Work</title>
+</head>
+<body>
+
+<script>
+
+    var lettersArray = ["e","a","g", "c", "i", "d", "f", "b", "h"];
+
+    function arraySortWork(lettersArray) {
+
+        var holder = [];
+
+        for (var index = 0; index < lettersArray.length; index ++) {
+                for (var i = 0; i < lettersArray.length; i++) {
+                    if (lettersArray[i] > lettersArray[i+1]) {
+                        holder = lettersArray[i+1];
+                        lettersArray[i+1] = lettersArray[i];
+                        lettersArray[i] = holder;
+                    }
+                }
+        }
+
+        return lettersArray;
+    }
+
+    // Other solution
+/*
+    1) Identify the smaller element in the unordered array
+    2) remove it from the unordered array and
+    3) move it to the ordered array
+    4) go to step 1) until there are no more elements
+    in the unordered array
+*/
+
+function anotherSolution() {
+    var orderedArray = [];
+
+    do {
+
+    // step 1
+    var min = lettersArray[0];
+    var minIndex = 0;
+    lettersArray.forEach(function (letter, i) {
+        if (min > letter) {
+            min = letter;
+            minIndex = i
+        }
+    });
+
+    lettersArray.splice(minIndex, 1); // step 2
+    orderedArray.push(min); // step 3
+    } while (lettersArray.length > 0); // step 4
+
+    return orderedArray
+}
+
+
+    console.log(lettersArray.sort());
+    console.log(arraySortWork(lettersArray));
+    console.log(anotherSolution(lettersArray));
+
+
+</script>
+</body>
+</html>
